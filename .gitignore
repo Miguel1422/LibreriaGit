@@ -240,3 +240,9 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+
+#Debug
+Libreria/bin/
+/Libreria/bin/
+/Libreria/bin/*
+Libreria/bin/*
