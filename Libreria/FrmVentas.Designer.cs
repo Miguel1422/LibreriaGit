@@ -59,6 +59,8 @@
             this.lbTotal = new System.Windows.Forms.Label();
             this.tbTotal = new System.Windows.Forms.TextBox();
             this.btnImprimir = new System.Windows.Forms.Button();
+            this.btnBuscarC = new System.Windows.Forms.Button();
+            this.btnBuscarP = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgProductos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,9 +76,11 @@
             // tbFolio
             // 
             this.tbFolio.Location = new System.Drawing.Point(63, 6);
+            this.tbFolio.MaxLength = 10;
             this.tbFolio.Name = "tbFolio";
             this.tbFolio.Size = new System.Drawing.Size(100, 20);
             this.tbFolio.TabIndex = 1;
+            this.tbFolio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbFolio_KeyPress);
             // 
             // lbFecha
             // 
@@ -106,14 +110,17 @@
             // tbNoControl
             // 
             this.tbNoControl.Location = new System.Drawing.Point(147, 73);
+            this.tbNoControl.MaxLength = 5;
             this.tbNoControl.Name = "tbNoControl";
             this.tbNoControl.Size = new System.Drawing.Size(100, 20);
             this.tbNoControl.TabIndex = 5;
+            this.tbNoControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNoControl_KeyPress);
             // 
             // tbNombre
             // 
             this.tbNombre.Location = new System.Drawing.Point(12, 109);
             this.tbNombre.Name = "tbNombre";
+            this.tbNombre.ReadOnly = true;
             this.tbNombre.Size = new System.Drawing.Size(232, 20);
             this.tbNombre.TabIndex = 6;
             // 
@@ -130,6 +137,7 @@
             // 
             this.tbTelefono.Location = new System.Drawing.Point(321, 109);
             this.tbTelefono.Name = "tbTelefono";
+            this.tbTelefono.ReadOnly = true;
             this.tbTelefono.Size = new System.Drawing.Size(100, 20);
             this.tbTelefono.TabIndex = 8;
             // 
@@ -146,6 +154,7 @@
             // 
             this.tbDireccion.Location = new System.Drawing.Point(73, 141);
             this.tbDireccion.Name = "tbDireccion";
+            this.tbDireccion.ReadOnly = true;
             this.tbDireccion.Size = new System.Drawing.Size(144, 20);
             this.tbDireccion.TabIndex = 10;
             // 
@@ -169,6 +178,7 @@
             // 
             this.tbProducto.Location = new System.Drawing.Point(15, 233);
             this.tbProducto.Name = "tbProducto";
+            this.tbProducto.ReadOnly = true;
             this.tbProducto.Size = new System.Drawing.Size(100, 20);
             this.tbProducto.TabIndex = 13;
             // 
@@ -185,6 +195,7 @@
             // 
             this.tbExistencia.Location = new System.Drawing.Point(208, 233);
             this.tbExistencia.Name = "tbExistencia";
+            this.tbExistencia.ReadOnly = true;
             this.tbExistencia.Size = new System.Drawing.Size(100, 20);
             this.tbExistencia.TabIndex = 15;
             // 
@@ -192,6 +203,7 @@
             // 
             this.tbPrecio.Location = new System.Drawing.Point(364, 233);
             this.tbPrecio.Name = "tbPrecio";
+            this.tbPrecio.ReadOnly = true;
             this.tbPrecio.Size = new System.Drawing.Size(100, 20);
             this.tbPrecio.TabIndex = 17;
             // 
@@ -216,9 +228,11 @@
             // tbCantidad
             // 
             this.tbCantidad.Location = new System.Drawing.Point(534, 233);
+            this.tbCantidad.MaxLength = 5;
             this.tbCantidad.Name = "tbCantidad";
             this.tbCantidad.Size = new System.Drawing.Size(100, 20);
             this.tbCantidad.TabIndex = 19;
+            this.tbCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCantidad_KeyPress);
             // 
             // dgProductos
             // 
@@ -298,6 +312,7 @@
             // 
             this.tbTotal.Location = new System.Drawing.Point(225, 434);
             this.tbTotal.Name = "tbTotal";
+            this.tbTotal.ReadOnly = true;
             this.tbTotal.Size = new System.Drawing.Size(100, 20);
             this.tbTotal.TabIndex = 25;
             // 
@@ -310,11 +325,31 @@
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = true;
             // 
+            // btnBuscarC
+            // 
+            this.btnBuscarC.Location = new System.Drawing.Point(265, 73);
+            this.btnBuscarC.Name = "btnBuscarC";
+            this.btnBuscarC.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscarC.TabIndex = 6;
+            this.btnBuscarC.Text = "Buscar";
+            this.btnBuscarC.UseVisualStyleBackColor = true;
+            // 
+            // btnBuscarP
+            // 
+            this.btnBuscarP.Location = new System.Drawing.Point(265, 177);
+            this.btnBuscarP.Name = "btnBuscarP";
+            this.btnBuscarP.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscarP.TabIndex = 13;
+            this.btnBuscarP.Text = "Buscar";
+            this.btnBuscarP.UseVisualStyleBackColor = true;
+            // 
             // FrmVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(666, 472);
+            this.Controls.Add(this.btnBuscarP);
+            this.Controls.Add(this.btnBuscarC);
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.tbTotal);
             this.Controls.Add(this.lbTotal);
@@ -384,5 +419,7 @@
         private System.Windows.Forms.Label lbTotal;
         private System.Windows.Forms.TextBox tbTotal;
         private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.Button btnBuscarC;
+        private System.Windows.Forms.Button btnBuscarP;
     }
 }
