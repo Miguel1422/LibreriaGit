@@ -20,13 +20,12 @@ namespace Libreria.archivos.texto
 
         }
 
-        public override bool writeFile(string file, string text, bool append)
+        public override void writeFile(string file, string text, bool append)
         {
             using (StreamWriter sw = new StreamWriter(file, append))
             {
                 sw.WriteLine(text);
                 sw.Close();
-                return true;
             }
 
             //return false;

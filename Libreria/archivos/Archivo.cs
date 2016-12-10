@@ -13,7 +13,7 @@ namespace Libreria.archivos
 
 
         abstract public void writeFile(string texto, string archivo);
-        abstract public bool writeFile(string file, string text, bool append);
+        abstract public void writeFile(string file, string text, bool append);
 
         abstract public string readFile(string archivo);
 

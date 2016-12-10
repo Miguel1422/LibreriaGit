@@ -67,5 +67,12 @@ namespace Libreria.objetos
             get { return precio; }
             set { precio = value; }
         }
+
+        public override string ToString()
+        {
+            string aux = String.Join("|", clave, isbn, titulo, autor, editorial, copias, precio);
+
+            return base.ToString();
+        }
     }
 }

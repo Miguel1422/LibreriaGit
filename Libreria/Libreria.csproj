@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="archivos\Archivo.cs" />
+    <Compile Include="archivos\binario\ArchivoBinario.cs" />
     <Compile Include="archivos\texto\ArchivoTexto.cs" />
     <Compile Include="archivos\texto\FileCliente.cs" />
     <Compile Include="archivos\texto\LoginManager.cs" />

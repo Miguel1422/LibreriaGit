@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Libreria.objetos;
 
 namespace Libreria
 {
@@ -27,7 +21,7 @@ namespace Libreria
 
         private void tbIsbn_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsNumber(e.KeyChar) 
+            if (!char.IsNumber(e.KeyChar)
                 && e.KeyChar != (char)Keys.Back
                 && e.KeyChar != '-')
             {
@@ -58,6 +52,64 @@ namespace Libreria
             {
                 e.Handled = true;
             }
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            if (!comprobarCampos())
+            {
+                return;
+            }
+
+            Libro l = new Libro(int.Parse(tbClave.Text), tbIsbn.Text,
+                tbTitulo.Text, tbAutor.Text, tbEditorial.Text, 
+                int.Parse(tbCopias.Text), double.Parse(tbPrecio.Text));
+
+
+        }
+
+
+
+        private bool comprobarCampos()
+        {
+            if (tbClave.Text.Equals(""))
+            {
+                MessageBox.Show("Ingresa la clave");
+                return false;
+            }
+            else if (tbIsbn.Text.Equals(""))
+            {
+                MessageBox.Show("Ingresa el ISBN");
+                return false;
+            }
+            else if (tbTitulo.Text.Equals(""))
+            {
+                MessageBox.Show("Ingresa el titulo");
+                return false;
+            }
+            else if (tbAutor.Text.Equals(""))
+            {
+                MessageBox.Show("Ingresa el autor");
+                return false;
+            }
+            else if (tbEditorial.Text.Equals(""))
+            {
+                MessageBox.Show("Ingresa el editorial");
+                return false;
+            }
+            else if (tbCopias.Text.Equals(""))
+            {
+                MessageBox.Show("Ingresa el numero de copias");
+                return false;
+            }
+            else if (tbPrecio.Text.Equals(""))
+            {
+                MessageBox.Show("Ingresa el precio");
+                return false;
+            }
+
+
+            return true;
         }
     }
 }

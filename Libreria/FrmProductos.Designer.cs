@@ -40,7 +40,7 @@
             this.lbClave = new System.Windows.Forms.Label();
             this.tbCopias = new System.Windows.Forms.TextBox();
             this.lbCopias = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.lbPrecio = new System.Windows.Forms.Label();
             this.tbPrecio = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -151,14 +151,15 @@
             this.lbCopias.TabIndex = 10;
             this.lbCopias.Text = "Copias:";
             // 
-            // button1
+            // btnGuardar
             // 
-            this.button1.Location = new System.Drawing.Point(80, 207);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Guardar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnGuardar.Location = new System.Drawing.Point(80, 207);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardar.TabIndex = 11;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // lbPrecio
             // 
@@ -185,7 +186,7 @@
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.tbPrecio);
             this.Controls.Add(this.lbPrecio);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.tbCopias);
             this.Controls.Add(this.lbCopias);
             this.Controls.Add(this.tbClave);
@@ -220,7 +221,7 @@
         private System.Windows.Forms.Label lbClave;
         private System.Windows.Forms.TextBox tbCopias;
         private System.Windows.Forms.Label lbCopias;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Label lbPrecio;
         private System.Windows.Forms.TextBox tbPrecio;
     }
