@@ -246,3 +246,8 @@ Libreria/bin/
 /Libreria/bin/
 /Libreria/bin/*
 Libreria/bin/*
+
+Libreria/obj/
+/Libreria/obj/
+/Libreria/obj/*
+Libreria/obj/*
