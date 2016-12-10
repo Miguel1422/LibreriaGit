@@ -192,6 +192,7 @@
             this.btnBaja.TabIndex = 19;
             this.btnBaja.Text = "Baja";
             this.btnBaja.UseVisualStyleBackColor = true;
+            this.btnBaja.Click += new System.EventHandler(this.btnBaja_Click);
             // 
             // btnConsulta
             // 
@@ -211,6 +212,7 @@
             this.btnModifica.TabIndex = 21;
             this.btnModifica.Text = "Modifica";
             this.btnModifica.UseVisualStyleBackColor = true;
+            this.btnModifica.Click += new System.EventHandler(this.btnModifica_Click);
             // 
             // FrmCliente
             // 

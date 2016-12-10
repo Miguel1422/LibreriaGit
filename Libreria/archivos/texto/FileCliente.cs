@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Libreria.archivos.texto
 {
@@ -25,6 +26,104 @@ namespace Libreria.archivos.texto
             }
 
             return null;
+        }
+
+        public bool eliminarCliente(int key)
+        {
+            StreamReader st = null;
+            StreamWriter sw = null;
+            bool eliminado = false;
+            try
+            {
+                st = new StreamReader(Constantes.USER_FILE);
+                sw = new StreamWriter(Constantes.TEMP_DIRECTORY + "temp.txt");
+
+
+                string l;
+                while ((l = st.ReadLine()) != null)
+                {
+
+                    int clave = int.Parse(l.Split('|')[0]);
+                    if (clave != key)
+                    {
+                        sw.WriteLine(l);
+                        
+                    }
+                    else
+                    {
+                        eliminado = true;
+                    }
+                }
+                
+            }
+            catch (Exception)
+            {
+
+            }
+            finally
+            {
+                st.Close();
+                sw.Close();
+            }
+
+            if (eliminado)
+            {
+                copyFile(Constantes.TEMP_DIRECTORY + "temp.txt", Constantes.USER_FILE);
+            }
+            
+
+            return eliminado;
+        }
+
+
+
+        public bool editarCliente(int key, Cliente nuevo)
+        {
+
+            StreamReader st = null;
+            StreamWriter sw = null;
+            bool eliminado = false;
+            try
+            {
+                st = new StreamReader(Constantes.USER_FILE);
+                sw = new StreamWriter(Constantes.TEMP_DIRECTORY + "temp.txt");
+
+
+                string l;
+                while ((l = st.ReadLine()) != null)
+                {
+
+                    int clave = int.Parse(l.Split('|')[0]);
+                    if (clave != key)
+                    {
+                        sw.WriteLine(l);
+
+                    }
+                    else
+                    {
+                        sw.WriteLine(nuevo.ToString());
+                        eliminado = true;
+                    }
+                }
+
+            }
+            catch (Exception)
+            {
+
+            }
+            finally
+            {
+                st.Close();
+                sw.Close();
+            }
+
+            if (eliminado)
+            {
+                copyFile(Constantes.TEMP_DIRECTORY + "temp.txt", Constantes.USER_FILE);
+            }
+
+
+            return eliminado;
         }
 
     }

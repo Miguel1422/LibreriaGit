@@ -12,7 +12,7 @@ namespace Libreria
         public FrmCliente()
         {
             InitializeComponent();
-            
+
         }
 
         private void tbClave_KeyPress(object sender, KeyPressEventArgs e)
@@ -75,38 +75,35 @@ namespace Libreria
 
         private void btnAlta_Click(object sender, EventArgs e)
         {
-            if (tbClave.Text.Equals(""))
+            if (!comprobarCampos())
             {
-                MessageBox.Show("Ingresa la clave");
-            }
-            else if (tbNombre.Text.Equals(""))
-            {
-                MessageBox.Show("Ingresa el nombre");
-            }
-            else if (tbDireccion.Text.Equals(""))
-            {
-                MessageBox.Show("Ingresa la direccion");
-            }
-            else if (tbCorreo.Text.Equals(""))
-            {
-                MessageBox.Show("Ingresa el correo");
-            }
-            else if (tbTelefono.Text.Equals(""))
-            {
-                MessageBox.Show("Ingresa el telefono");
-            }
-            else if (pbImagen.Image == null)
-            {
-                MessageBox.Show("Ingresa la imagen");
+                return;
             }
 
-            Cliente cl = new Cliente(int.Parse(tbClave.Text), tbNombre.Text, tbDireccion.Text,
+
+
+            try
+            {
+                Cliente cl = new Cliente(int.Parse(tbClave.Text), tbNombre.Text, tbDireccion.Text,
                 tbCorreo.Text, tbTelefono.Text, dtFecha.Text);
 
-            Archivo.copyFile(Constantes.TEMP_DIRECTORY + "temp.jpg", Constantes.IMG_DIRECTORY + tbClave.Text + ".jpg");
-            ArchivoTexto ar = new ArchivoTexto();
-            ar.writeFile(Constantes.USER_FILE, cl.ToString(), true);
+                Archivo.copyFile(Constantes.TEMP_DIRECTORY + "temp.jpg", Constantes.IMG_DIRECTORY + tbClave.Text + ".jpg");
+                ArchivoTexto ar = new ArchivoTexto();
+                ar.writeFile(Constantes.USER_FILE, cl.ToString(), true);
+                limpiarCampos();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error Cliente no encontrado");
+            }
+
+
+
+
         }
+
+
+
 
         private void btnImagen_Click(object sender, EventArgs e)
         {
@@ -117,33 +114,156 @@ namespace Libreria
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 Archivo.copyFile(dialog.FileName, Constantes.TEMP_DIRECTORY + "temp.jpg");
-                Image img = Image.FromFile(Constantes.TEMP_DIRECTORY + "temp.jpg");
-                
-                pbImagen.Image = img;
+                //Image img = Image.FromFile(Constantes.TEMP_DIRECTORY + "temp.jpg");
+
+                pbImagen.Load(Constantes.TEMP_DIRECTORY + "temp.jpg");
             }
         }
 
         private void btnConsulta_Click(object sender, EventArgs e)
         {
-            
+            if (tbClave.Text == "")
+            {
+                MessageBox.Show("Ingresa la clave");
+                return;
+            }
 
+            FileCliente fc = new FileCliente();
             try
             {
-                FileCliente fc = new FileCliente();
+
                 Cliente c = fc.buscarCliente(int.Parse(tbClave.Text));
                 tbNombre.Text = c.Nombre;
                 tbDireccion.Text = c.Direccion;
                 tbCorreo.Text = c.Correo;
                 tbTelefono.Text = c.Telefono;
                 dtFecha.Text = c.Fecha;
-                pbImagen.Image = Image.FromFile(Constantes.IMG_DIRECTORY + c.Clave + ".jpg");
+                //pbImagen.Image = Image.FromFile(Constantes.IMG_DIRECTORY + c.Clave + ".jpg");
+                pbImagen.Load(Constantes.IMG_DIRECTORY + c.Clave + ".jpg");
             }
             catch (Exception)
             {
                 MessageBox.Show("Error Cliente no encontrado");
+                limpiarCampos();
+            }
+            finally
+            {
+                fc = null;
+
             }
 
-             
+
+        }
+
+        private void btnBaja_Click(object sender, EventArgs e)
+        {
+            if (tbClave.Text == "")
+            {
+                MessageBox.Show("Ingresa la clave");
+                return;
+            }
+
+            FileCliente fc = new FileCliente();
+            try
+            {
+                if (!fc.eliminarCliente(int.Parse(tbClave.Text)))
+                {
+                    MessageBox.Show("Error Cliente no encontrado");
+
+                }
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error Cliente no encontrado");
+
+            }
+            finally
+            {
+                fc = null;
+                limpiarCampos();
+            }
+
+        }
+
+        private bool comprobarCampos()
+        {
+            if (tbClave.Text.Equals(""))
+            {
+                MessageBox.Show("Ingresa la clave");
+                return false;
+            }
+            else if (tbNombre.Text.Equals(""))
+            {
+                MessageBox.Show("Ingresa el nombre");
+                return false;
+            }
+            else if (tbDireccion.Text.Equals(""))
+            {
+                MessageBox.Show("Ingresa la direccion");
+                return false;
+            }
+            else if (tbCorreo.Text.Equals(""))
+            {
+                MessageBox.Show("Ingresa el correo");
+                return false;
+            }
+            else if (tbTelefono.Text.Equals(""))
+            {
+                MessageBox.Show("Ingresa el telefono");
+                return false;
+            }
+            else if (pbImagen.Image == null)
+            {
+                MessageBox.Show("Ingresa la imagen");
+                return false;
+            }
+            return true;
+        }
+
+        private void limpiarCampos()
+        {
+            tbClave.Text = "";
+            tbCorreo.Text = "";
+            tbDireccion.Text = "";
+            tbNombre.Text = "";
+            tbTelefono.Text = "";
+            pbImagen.Image = null;
+        }
+
+        private void btnModifica_Click(object sender, EventArgs e)
+        {
+            if (!comprobarCampos())
+            {
+                return;
+            }
+
+            //Console.WriteLine(pbImagen.ImageLocation);
+
+            
+            try
+            {
+                Archivo.copyFile(pbImagen.ImageLocation, Constantes.TEMP_DIRECTORY + "temp.jpg");
+
+                Cliente cl = new Cliente(int.Parse(tbClave.Text), tbNombre.Text, tbDireccion.Text,
+                    tbCorreo.Text, tbTelefono.Text, dtFecha.Text);
+
+
+
+                Archivo.copyFile(Constantes.TEMP_DIRECTORY + "temp.jpg", Constantes.IMG_DIRECTORY + tbClave.Text + ".jpg");
+
+                FileCliente fc = new FileCliente();
+
+                fc.editarCliente(cl.Clave, cl);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error usuario no encontrado");
+            }
+
+            
+
+
         }
     }
 }
