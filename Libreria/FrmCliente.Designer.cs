@@ -160,6 +160,7 @@
             this.pbImagen.Location = new System.Drawing.Point(311, 20);
             this.pbImagen.Name = "pbImagen";
             this.pbImagen.Size = new System.Drawing.Size(122, 150);
+            this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImagen.TabIndex = 16;
             this.pbImagen.TabStop = false;
             // 
@@ -200,6 +201,7 @@
             this.btnConsulta.TabIndex = 20;
             this.btnConsulta.Text = "Consulta";
             this.btnConsulta.UseVisualStyleBackColor = true;
+            this.btnConsulta.Click += new System.EventHandler(this.btnConsulta_Click);
             // 
             // btnModifica
             // 

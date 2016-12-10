@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Libreria.archivos.texto
 {
-    class ArchivoTexto:Archivo
+    class ArchivoTexto : Archivo
     {
         public override void writeFile(string texto, string archivo)
         {
@@ -22,7 +22,7 @@ namespace Libreria.archivos.texto
 
         public override bool writeFile(string file, string text, bool append)
         {
-            using (StreamWriter sw = new StreamWriter(file, append, Encoding.Unicode))
+            using (StreamWriter sw = new StreamWriter(file, append))
             {
                 sw.WriteLine(text);
                 sw.Close();

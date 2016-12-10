@@ -12,8 +12,7 @@ namespace Libreria
         public FrmCliente()
         {
             InitializeComponent();
-            Archivo.createDir(Constantes.IMG_DIRECTORY);
-            Archivo.createDir(Constantes.TEMP_DIRECTORY);
+            
         }
 
         private void tbClave_KeyPress(object sender, KeyPressEventArgs e)
@@ -26,7 +25,8 @@ namespace Libreria
 
         private void tbNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back
+            if (!char.IsLetter(e.KeyChar)
+                && e.KeyChar != (char)Keys.Back
                 && e.KeyChar != (char)Keys.Space)
             {
                 e.Handled = true;
@@ -35,9 +35,12 @@ namespace Libreria
 
         private void tbDireccion_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back
-                && !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Space
-                && e.KeyChar != '#' && e.KeyChar != '-')
+            if (!char.IsLetter(e.KeyChar)
+                && e.KeyChar != (char)Keys.Back
+                && !char.IsDigit(e.KeyChar)
+                && e.KeyChar != (char)Keys.Space
+                && e.KeyChar != '#'
+                && e.KeyChar != '-')
             {
                 e.Handled = true;
             }
@@ -45,9 +48,12 @@ namespace Libreria
 
         private void tbCorreo_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back
-                && !char.IsDigit(e.KeyChar) && e.KeyChar != '@'
-                && e.KeyChar != '.' && e.KeyChar != '_'
+            if (!char.IsLetter(e.KeyChar)
+                && e.KeyChar != (char)Keys.Back
+                && !char.IsDigit(e.KeyChar)
+                && e.KeyChar != '@'
+                && e.KeyChar != '.'
+                && e.KeyChar != '_'
                 && e.KeyChar != '-')
             {
                 e.Handled = true;
@@ -56,9 +62,11 @@ namespace Libreria
 
         private void tbTelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsNumber(e.KeyChar) && e.KeyChar != (char)Keys.Back
+            if (!char.IsNumber(e.KeyChar)
+                && e.KeyChar != (char)Keys.Back
                 && e.KeyChar != '+'
-                && e.KeyChar != '(' && e.KeyChar != ')'
+                && e.KeyChar != '('
+                && e.KeyChar != ')'
                 && e.KeyChar != '-')
             {
                 e.Handled = true;
@@ -86,13 +94,15 @@ namespace Libreria
             else if (tbTelefono.Text.Equals(""))
             {
                 MessageBox.Show("Ingresa el telefono");
-            } else if (pbImagen.Image == null)
+            }
+            else if (pbImagen.Image == null)
             {
                 MessageBox.Show("Ingresa la imagen");
             }
 
-            Cliente cl = new Cliente(int.Parse(tbClave.Text), tbNombre.Text, tbDireccion.Text, 
+            Cliente cl = new Cliente(int.Parse(tbClave.Text), tbNombre.Text, tbDireccion.Text,
                 tbCorreo.Text, tbTelefono.Text, dtFecha.Text);
+
             Archivo.copyFile(Constantes.TEMP_DIRECTORY + "temp.jpg", Constantes.IMG_DIRECTORY + tbClave.Text + ".jpg");
             ArchivoTexto ar = new ArchivoTexto();
             ar.writeFile(Constantes.USER_FILE, cl.ToString(), true);
@@ -108,9 +118,32 @@ namespace Libreria
             {
                 Archivo.copyFile(dialog.FileName, Constantes.TEMP_DIRECTORY + "temp.jpg");
                 Image img = Image.FromFile(Constantes.TEMP_DIRECTORY + "temp.jpg");
-                pbImagen.SizeMode = PictureBoxSizeMode.StretchImage;
+                
                 pbImagen.Image = img;
             }
+        }
+
+        private void btnConsulta_Click(object sender, EventArgs e)
+        {
+            
+
+            try
+            {
+                FileCliente fc = new FileCliente();
+                Cliente c = fc.buscarCliente(int.Parse(tbClave.Text));
+                tbNombre.Text = c.Nombre;
+                tbDireccion.Text = c.Direccion;
+                tbCorreo.Text = c.Correo;
+                tbTelefono.Text = c.Telefono;
+                dtFecha.Text = c.Fecha;
+                pbImagen.Image = Image.FromFile(Constantes.IMG_DIRECTORY + c.Clave + ".jpg");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error Cliente no encontrado");
+            }
+
+             
         }
     }
 }
