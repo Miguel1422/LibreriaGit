@@ -3,34 +3,23 @@ using System.IO;
 
 namespace Libreria.archivos
 {
-    class ArchivoTexto
+    class ArchivoTexto:Archivo
     {
-        public bool createDir(string path)
+        public override void writeFile(string texto, string archivo)
         {
-            if (!Directory.Exists(path))
-            {
-                Directory.CreateDirectory(path);
-                return true;
-
-            }
-            return false;
+            writeFile(texto, archivo, true);
         }
 
-        public bool createFile(string file)
+        public override string readFile(string archivo)
         {
-            if (!File.Exists(file))
+            using (StreamReader sr = new StreamReader(archivo))
             {
-                using (StreamWriter tw = new StreamWriter(file))
-                {
-                    tw.Close();
-                    return true;
-                }
+                return sr.ReadToEnd();
             }
-            return false;
+
         }
 
-
-        public bool writeFile(string file, string text, bool append)
+        public override bool writeFile(string file, string text, bool append)
         {
             using (StreamWriter sw = new StreamWriter(file, append))
             {

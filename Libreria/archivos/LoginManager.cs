@@ -13,7 +13,8 @@ namespace Libreria.archivos
         {
             createDir(Constantes.FILE_DIRECTORY);
             createFile(Constantes.LOGIN_FILE);
-            writeFile(Constantes.LOGIN_FILE, "admin 123 user", false);
+            writeFile(Constantes.LOGIN_FILE, "admin 123 admin", false);
+            writeFile(Constantes.LOGIN_FILE, "user 123 user", true);
         }
 
         private void createLogin(string name, string pass, string tipo)
