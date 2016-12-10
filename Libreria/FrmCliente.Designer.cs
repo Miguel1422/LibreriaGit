@@ -165,12 +165,13 @@
             // 
             // btnImagen
             // 
-            this.btnImagen.Location = new System.Drawing.Point(311, 176);
+            this.btnImagen.Location = new System.Drawing.Point(336, 176);
             this.btnImagen.Name = "btnImagen";
             this.btnImagen.Size = new System.Drawing.Size(75, 23);
             this.btnImagen.TabIndex = 17;
             this.btnImagen.Text = "Cargar";
             this.btnImagen.UseVisualStyleBackColor = true;
+            this.btnImagen.Click += new System.EventHandler(this.btnImagen_Click);
             // 
             // btnAlta
             // 
@@ -180,6 +181,7 @@
             this.btnAlta.TabIndex = 18;
             this.btnAlta.Text = "Alta";
             this.btnAlta.UseVisualStyleBackColor = true;
+            this.btnAlta.Click += new System.EventHandler(this.btnAlta_Click);
             // 
             // btnBaja
             // 

@@ -21,7 +21,7 @@ namespace Libreria.archivos
 
 
 
-        public bool createDir(string path)
+        public static bool createDir(string path)
         {
             if (!Directory.Exists(path))
             {
@@ -32,7 +32,7 @@ namespace Libreria.archivos
             return false;
         }
 
-        public bool createFile(string file)
+        public static bool createFile(string file)
         {
             if (!File.Exists(file))
             {
@@ -43,6 +43,14 @@ namespace Libreria.archivos
                 }
             }
             return false;
+        }
+
+        public static bool copyFile(string file, string to)
+        {
+
+            File.Copy(file, to, true);
+
+            return true;
         }
     }
 }

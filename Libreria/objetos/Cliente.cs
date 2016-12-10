@@ -61,5 +61,16 @@ namespace Libreria.objetos
             set { fecha = value; }
         }
 
+        
+
+
+        public override string ToString()
+        {
+            string aux = String.Join("|", clave, nombre, direccion, correo, telefono, fecha);
+
+
+            return aux;
+        }
+
     }
 }

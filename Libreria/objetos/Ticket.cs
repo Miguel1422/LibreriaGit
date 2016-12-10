@@ -12,6 +12,7 @@ namespace Libreria.objetos
         string fecha;
         Cliente cliente;
         double total;
+        
 
         Dictionary<Libro, int> productos;
 
@@ -45,7 +46,7 @@ namespace Libreria.objetos
 
         public double Total
         {
-            get { return total; }
+            get { return sacarTotal(); }
             set { total = value; }
         }
 
@@ -53,6 +54,17 @@ namespace Libreria.objetos
         {
             get { return productos; }
             set { productos = value; }
+        }
+
+
+        private double sacarTotal()
+        {
+            double total = 0;
+            foreach(KeyValuePair<Libro, int> l in productos){
+                total += l.Key.Precio * l.Value;
+            }
+
+            return total;
         }
     }
 }
