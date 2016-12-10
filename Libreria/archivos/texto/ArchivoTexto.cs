@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 
 namespace Libreria.archivos.texto
 {
@@ -21,7 +22,7 @@ namespace Libreria.archivos.texto
 
         public override bool writeFile(string file, string text, bool append)
         {
-            using (StreamWriter sw = new StreamWriter(file, append))
+            using (StreamWriter sw = new StreamWriter(file, append, Encoding.Unicode))
             {
                 sw.WriteLine(text);
                 sw.Close();

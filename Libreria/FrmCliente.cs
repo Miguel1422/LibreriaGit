@@ -91,10 +91,11 @@ namespace Libreria
                 MessageBox.Show("Ingresa la imagen");
             }
 
-            Cliente cl = new Cliente(int.Parse(tbClave.Text), tbNombre.Text, tbDireccion.Text, tbCorreo.Text, tbTelefono.Text, dtFecha.Text);
+            Cliente cl = new Cliente(int.Parse(tbClave.Text), tbNombre.Text, tbDireccion.Text, 
+                tbCorreo.Text, tbTelefono.Text, dtFecha.Text);
             Archivo.copyFile(Constantes.TEMP_DIRECTORY + "temp.jpg", Constantes.IMG_DIRECTORY + tbClave.Text + ".jpg");
             ArchivoTexto ar = new ArchivoTexto();
-            ar.writeFile(cl.ToString(), "",true);
+            ar.writeFile(Constantes.USER_FILE, cl.ToString(), true);
         }
 
         private void btnImagen_Click(object sender, EventArgs e)
