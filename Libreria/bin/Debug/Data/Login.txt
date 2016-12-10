@@ -1,3 +1,0 @@
-admin 123 admin
-miguel asd user
-Bryan contraseña admin
