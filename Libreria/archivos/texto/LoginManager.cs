@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace Libreria.archivos
+namespace Libreria.archivos.texto
 {
     class LoginManager:ArchivoTexto
     {

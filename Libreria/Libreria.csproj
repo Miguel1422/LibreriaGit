@@ -47,8 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="archivos\Archivo.cs" />
-    <Compile Include="archivos\ArchivoTexto.cs" />
-    <Compile Include="archivos\LoginManager.cs" />
+    <Compile Include="archivos\texto\ArchivoTexto.cs" />
+    <Compile Include="archivos\texto\LoginManager.cs" />
     <Compile Include="Constantes.cs" />
     <Compile Include="FrmCliente.cs">
       <SubType>Form</SubType>
@@ -80,6 +80,9 @@
     <Compile Include="FrmVentas.Designer.cs">
       <DependentUpon>FrmVentas.cs</DependentUpon>
     </Compile>
+    <Compile Include="objetos\Cliente.cs" />
+    <Compile Include="objetos\Libro.cs" />
+    <Compile Include="objetos\Ticket.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmCliente.resx">

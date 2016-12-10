@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using Libreria.archivos;
+using Libreria.archivos.texto;
 
 namespace Libreria
 {

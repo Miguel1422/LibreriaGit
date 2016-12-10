@@ -51,5 +51,13 @@ namespace Libreria
                 e.Handled = true;
             }
         }
+
+        private void tbPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsNumber(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
