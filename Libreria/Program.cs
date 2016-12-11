@@ -23,13 +23,13 @@ namespace Libreria
             Archivo.createDir(Constantes.TEMP_DIRECTORY);
             Archivo.createDir(Constantes.FOLIO_DIRECTORY);
 
-            Archivo.createFile(Constantes.LOGIN_FILE);
+            //Archivo.createFile(Constantes.LOGIN_FILE);
             Archivo.createFile(Constantes.USER_FILE);
             Archivo.createFile(Constantes.PRODUCT_FILE);
 
-            //Application.Run(new FrmLogin());
+            Application.Run(new FrmLogin());
 
-            Application.Run(new FrmVentas());
+            //Application.Run(new FrmVentas());
             //Application.Run(new FrmProductos());
         }
     }

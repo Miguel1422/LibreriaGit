@@ -14,6 +14,7 @@ namespace Libreria
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             LoginManager l = new LoginManager();
+            
             int estado = l.findUser(tbUser.Text, tbPass.Text);
             if (estado == LoginManager.ADMIN)
             {
