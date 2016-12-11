@@ -176,7 +176,7 @@
             this.tbPrecio.MaxLength = 5;
             this.tbPrecio.Name = "tbPrecio";
             this.tbPrecio.Size = new System.Drawing.Size(125, 20);
-            this.tbPrecio.TabIndex = 13;
+            this.tbPrecio.TabIndex = 10;
             this.tbPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPrecio_KeyPress);
             // 
             // FrmProductos

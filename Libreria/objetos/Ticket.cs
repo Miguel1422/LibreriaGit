@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,9 +15,9 @@ namespace Libreria.objetos
         double total;
         
 
-        Dictionary<Libro, int> productos;
+        ArrayList productos;
 
-        public Ticket(string folio, string fecha, Cliente cliente, double total, Dictionary<Libro, int> productos)
+        public Ticket(string folio, string fecha, Cliente cliente, double total, ArrayList productos)
         {
             this.folio = folio;
             this.fecha = fecha;
@@ -50,7 +51,7 @@ namespace Libreria.objetos
             set { total = value; }
         }
 
-        public Dictionary<Libro, int> Productos
+        public ArrayList Productos
         {
             get { return productos; }
             set { productos = value; }
@@ -60,11 +61,22 @@ namespace Libreria.objetos
         private double sacarTotal()
         {
             double total = 0;
-            foreach(KeyValuePair<Libro, int> l in productos){
-                total += l.Key.Precio * l.Value;
+            foreach(Libro l in productos){
+                total += l.Precio * l.Copias;
             }
 
             return total;
+        }
+
+        public override string ToString()
+        {
+            string producto = "";
+            foreach (Libro item in productos)
+            {
+                producto += item.Clave + " " + item.Titulo + " $" + item.Precio + " x" + item.Copias + " = " + (item.Precio * item.Copias)  +  "\n";
+            }
+            string aux = String.Join("\n", "No. de folio: " + folio, "Fecha " + fecha, cliente.Nombre, "Telefono " +cliente.Telefono, producto, "Total: " + Total);
+            return aux;
         }
     }
 }

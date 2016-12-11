@@ -14,6 +14,8 @@ namespace Libreria
 
         public static string TEMP_DIRECTORY = FILE_DIRECTORY + "/temp/";
 
+        public static string FOLIO_DIRECTORY = FILE_DIRECTORY + "/folios/";
+
 
 
         public static string LOGIN_FILE = FILE_DIRECTORY + "Login.txt";
@@ -21,6 +23,8 @@ namespace Libreria
         public static string USER_FILE = FILE_DIRECTORY + "Users.txt";
 
         public static string PRODUCT_FILE = FILE_DIRECTORY + "Productos.dat";
+
+        
 
     }
 }

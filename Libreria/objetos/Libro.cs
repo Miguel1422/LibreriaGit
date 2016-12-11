@@ -24,6 +24,7 @@ namespace Libreria.objetos
             this.autor = autor;
             this.editorial = editorial;
             this.copias = copias;
+            this.precio = precio;
         }
 
         public int Clave

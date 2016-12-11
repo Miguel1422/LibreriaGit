@@ -33,14 +33,14 @@
             this.lbFecha = new System.Windows.Forms.Label();
             this.dtFecha = new System.Windows.Forms.DateTimePicker();
             this.lbNoControl = new System.Windows.Forms.Label();
-            this.tbNoControl = new System.Windows.Forms.TextBox();
+            this.tbClaveC = new System.Windows.Forms.TextBox();
             this.tbNombre = new System.Windows.Forms.TextBox();
             this.lbTelefono = new System.Windows.Forms.Label();
             this.tbTelefono = new System.Windows.Forms.TextBox();
             this.lbDireccion = new System.Windows.Forms.Label();
             this.tbDireccion = new System.Windows.Forms.TextBox();
             this.lbClave = new System.Windows.Forms.Label();
-            this.tbClave = new System.Windows.Forms.TextBox();
+            this.tbClaveP = new System.Windows.Forms.TextBox();
             this.tbProducto = new System.Windows.Forms.TextBox();
             this.lbExistencia = new System.Windows.Forms.Label();
             this.tbExistencia = new System.Windows.Forms.TextBox();
@@ -49,6 +49,7 @@
             this.lbCantidad = new System.Windows.Forms.Label();
             this.tbCantidad = new System.Windows.Forms.TextBox();
             this.dgProductos = new System.Windows.Forms.DataGridView();
+            this.colClave = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -93,6 +94,7 @@
             // 
             // dtFecha
             // 
+            this.dtFecha.Enabled = false;
             this.dtFecha.Location = new System.Drawing.Point(63, 32);
             this.dtFecha.Name = "dtFecha";
             this.dtFecha.Size = new System.Drawing.Size(200, 20);
@@ -107,14 +109,14 @@
             this.lbNoControl.TabIndex = 4;
             this.lbNoControl.Text = "No. de control del Cliente:";
             // 
-            // tbNoControl
+            // tbClaveC
             // 
-            this.tbNoControl.Location = new System.Drawing.Point(147, 73);
-            this.tbNoControl.MaxLength = 5;
-            this.tbNoControl.Name = "tbNoControl";
-            this.tbNoControl.Size = new System.Drawing.Size(100, 20);
-            this.tbNoControl.TabIndex = 5;
-            this.tbNoControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNoControl_KeyPress);
+            this.tbClaveC.Location = new System.Drawing.Point(147, 73);
+            this.tbClaveC.MaxLength = 5;
+            this.tbClaveC.Name = "tbClaveC";
+            this.tbClaveC.Size = new System.Drawing.Size(100, 20);
+            this.tbClaveC.TabIndex = 5;
+            this.tbClaveC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNoControl_KeyPress);
             // 
             // tbNombre
             // 
@@ -167,12 +169,13 @@
             this.lbClave.TabIndex = 11;
             this.lbClave.Text = "Clave del producto:";
             // 
-            // tbClave
+            // tbClaveP
             // 
-            this.tbClave.Location = new System.Drawing.Point(117, 174);
-            this.tbClave.Name = "tbClave";
-            this.tbClave.Size = new System.Drawing.Size(100, 20);
-            this.tbClave.TabIndex = 12;
+            this.tbClaveP.Location = new System.Drawing.Point(117, 174);
+            this.tbClaveP.Name = "tbClaveP";
+            this.tbClaveP.Size = new System.Drawing.Size(100, 20);
+            this.tbClaveP.TabIndex = 12;
+            this.tbClaveP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbClaveP_KeyPress);
             // 
             // tbProducto
             // 
@@ -238,15 +241,20 @@
             // 
             this.dgProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colClave,
             this.colProducto,
             this.colPrecio,
             this.colCantidad,
             this.colTotal});
             this.dgProductos.Location = new System.Drawing.Point(15, 259);
             this.dgProductos.Name = "dgProductos";
-            this.dgProductos.RowHeadersVisible = false;
-            this.dgProductos.Size = new System.Drawing.Size(293, 150);
+            this.dgProductos.Size = new System.Drawing.Size(406, 150);
             this.dgProductos.TabIndex = 20;
+            // 
+            // colClave
+            // 
+            this.colClave.HeaderText = "Clave";
+            this.colClave.Name = "colClave";
             // 
             // colProducto
             // 
@@ -273,22 +281,24 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(321, 259);
+            this.btnAgregar.Location = new System.Drawing.Point(427, 259);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(37, 60);
             this.btnAgregar.TabIndex = 21;
             this.btnAgregar.Text = "+";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(321, 325);
+            this.btnEliminar.Location = new System.Drawing.Point(427, 325);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(37, 60);
             this.btnEliminar.TabIndex = 22;
             this.btnEliminar.Text = "-";
             this.btnEliminar.UseMnemonic = false;
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnGuardar
             // 
@@ -298,6 +308,7 @@
             this.btnGuardar.TabIndex = 23;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // lbTotal
             // 
@@ -318,12 +329,14 @@
             // 
             // btnImprimir
             // 
+            this.btnImprimir.Enabled = false;
             this.btnImprimir.Location = new System.Drawing.Point(579, 437);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(75, 23);
             this.btnImprimir.TabIndex = 26;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // btnBuscarC
             // 
@@ -333,6 +346,7 @@
             this.btnBuscarC.TabIndex = 6;
             this.btnBuscarC.Text = "Buscar";
             this.btnBuscarC.UseVisualStyleBackColor = true;
+            this.btnBuscarC.Click += new System.EventHandler(this.btnBuscarC_Click);
             // 
             // btnBuscarP
             // 
@@ -342,6 +356,7 @@
             this.btnBuscarP.TabIndex = 13;
             this.btnBuscarP.Text = "Buscar";
             this.btnBuscarP.UseVisualStyleBackColor = true;
+            this.btnBuscarP.Click += new System.EventHandler(this.btnBuscarP_Click);
             // 
             // FrmVentas
             // 
@@ -364,14 +379,14 @@
             this.Controls.Add(this.tbExistencia);
             this.Controls.Add(this.lbExistencia);
             this.Controls.Add(this.tbProducto);
-            this.Controls.Add(this.tbClave);
+            this.Controls.Add(this.tbClaveP);
             this.Controls.Add(this.lbClave);
             this.Controls.Add(this.tbDireccion);
             this.Controls.Add(this.lbDireccion);
             this.Controls.Add(this.tbTelefono);
             this.Controls.Add(this.lbTelefono);
             this.Controls.Add(this.tbNombre);
-            this.Controls.Add(this.tbNoControl);
+            this.Controls.Add(this.tbClaveC);
             this.Controls.Add(this.lbNoControl);
             this.Controls.Add(this.dtFecha);
             this.Controls.Add(this.lbFecha);
@@ -393,14 +408,14 @@
         private System.Windows.Forms.Label lbFecha;
         private System.Windows.Forms.DateTimePicker dtFecha;
         private System.Windows.Forms.Label lbNoControl;
-        private System.Windows.Forms.TextBox tbNoControl;
+        private System.Windows.Forms.TextBox tbClaveC;
         private System.Windows.Forms.TextBox tbNombre;
         private System.Windows.Forms.Label lbTelefono;
         private System.Windows.Forms.TextBox tbTelefono;
         private System.Windows.Forms.Label lbDireccion;
         private System.Windows.Forms.TextBox tbDireccion;
         private System.Windows.Forms.Label lbClave;
-        private System.Windows.Forms.TextBox tbClave;
+        private System.Windows.Forms.TextBox tbClaveP;
         private System.Windows.Forms.TextBox tbProducto;
         private System.Windows.Forms.Label lbExistencia;
         private System.Windows.Forms.TextBox tbExistencia;
@@ -409,10 +424,6 @@
         private System.Windows.Forms.Label lbCantidad;
         private System.Windows.Forms.TextBox tbCantidad;
         private System.Windows.Forms.DataGridView dgProductos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPrecio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTotal;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnGuardar;
@@ -421,5 +432,10 @@
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Button btnBuscarC;
         private System.Windows.Forms.Button btnBuscarP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colClave;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPrecio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTotal;
     }
 }
