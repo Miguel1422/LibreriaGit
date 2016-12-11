@@ -126,5 +126,10 @@ namespace Libreria.archivos.texto
             return eliminado;
         }
 
+        public void guardarCliente(Cliente cl)
+        {
+            writeFile(Constantes.USER_FILE, cl.ToString(), true);
+        }
+
     }
 }

@@ -24,8 +24,11 @@ namespace Libreria
 
             Archivo.createFile(Constantes.LOGIN_FILE);
             Archivo.createFile(Constantes.USER_FILE);
+            Archivo.createFile(Constantes.PRODUCT_FILE);
 
-            Application.Run(new FrmCliente());
+            //Application.Run(new FrmLogin());
+
+            Application.Run(new FrmProductos());
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Libreria.objetos;
+using Libreria.archivos.binario;
 
 namespace Libreria
 {
@@ -64,7 +65,17 @@ namespace Libreria
             Libro l = new Libro(int.Parse(tbClave.Text), tbIsbn.Text,
                 tbTitulo.Text, tbAutor.Text, tbEditorial.Text, 
                 int.Parse(tbCopias.Text), double.Parse(tbPrecio.Text));
+            FileProducto fp = new FileProducto();
 
+            try
+            {
+                fp.guardarProducto(l);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error");
+            }
+            
 
         }
 

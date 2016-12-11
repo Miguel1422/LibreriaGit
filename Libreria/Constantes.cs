@@ -20,7 +20,7 @@ namespace Libreria
 
         public static string USER_FILE = FILE_DIRECTORY + "Users.txt";
 
-        public static string PRODUCT_FILE = FILE_DIRECTORY + "Productos.txt";
+        public static string PRODUCT_FILE = FILE_DIRECTORY + "Productos.dat";
 
     }
 }

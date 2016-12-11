@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using Libreria.archivos;
 using Libreria.archivos.texto;
 using Libreria.objetos;
+using Libreria.otros;
 
 namespace Libreria
 {
@@ -89,7 +90,9 @@ namespace Libreria
 
                 Archivo.copyFile(Constantes.TEMP_DIRECTORY + "temp.jpg", Constantes.IMG_DIRECTORY + tbClave.Text + ".jpg");
                 ArchivoTexto ar = new ArchivoTexto();
-                ar.writeFile(Constantes.USER_FILE, cl.ToString(), true);
+                FileCliente fc = new FileCliente();
+                fc.guardarCliente(cl);
+                //ar.writeFile(Constantes.USER_FILE, cl.ToString(), true);
                 limpiarCampos();
             }
             catch (Exception)
@@ -218,7 +221,18 @@ namespace Libreria
                 MessageBox.Show("Ingresa la imagen");
                 return false;
             }
+            else if (!emailValido(tbCorreo.Text))
+            {
+                MessageBox.Show("Email invalido");
+                return false;
+            }
             return true;
+        }
+
+        private bool emailValido(string mail)
+        {
+            EmailValid am = new EmailValid();
+            return am.IsValidEmail(mail);
         }
 
         private void limpiarCampos()
@@ -240,7 +254,7 @@ namespace Libreria
 
             //Console.WriteLine(pbImagen.ImageLocation);
 
-            
+
             try
             {
                 Archivo.copyFile(pbImagen.ImageLocation, Constantes.TEMP_DIRECTORY + "temp.jpg");
@@ -261,7 +275,7 @@ namespace Libreria
                 MessageBox.Show("Error usuario no encontrado");
             }
 
-            
+
 
 
         }

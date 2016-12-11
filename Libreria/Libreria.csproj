@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="archivos\Archivo.cs" />
     <Compile Include="archivos\binario\ArchivoBinario.cs" />
+    <Compile Include="archivos\binario\FileProducto.cs" />
     <Compile Include="archivos\texto\ArchivoTexto.cs" />
     <Compile Include="archivos\texto\FileCliente.cs" />
     <Compile Include="archivos\texto\LoginManager.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="objetos\Cliente.cs" />
     <Compile Include="objetos\Libro.cs" />
     <Compile Include="objetos\Ticket.cs" />
+    <Compile Include="otros\EmailValid.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmCliente.resx">

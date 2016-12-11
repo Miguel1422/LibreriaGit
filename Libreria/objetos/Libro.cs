@@ -72,7 +72,7 @@ namespace Libreria.objetos
         {
             string aux = String.Join("|", clave, isbn, titulo, autor, editorial, copias, precio);
 
-            return base.ToString();
+            return aux;
         }
     }
 }
