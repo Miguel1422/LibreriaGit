@@ -117,10 +117,12 @@ namespace Libreria
             row.Cells[1].Value = tbProducto.Text;
             row.Cells[2].Value = tbPrecio.Text;
             row.Cells[3].Value = tbCantidad.Text;
-            row.Cells[4].Value = double.Parse(tbPrecio.Text) * int.Parse(tbCantidad.Text);
+            row.Cells[4].Value = double.Parse(tbPrecio.Text) * 
+                int.Parse(tbCantidad.Text);
             dgProductos.Rows.Add(row);
 
-            //dgProductos.Rows.Add(tbProducto.Text, tbPrecio.Text, tbCantidad.Text, double.Parse(tbPrecio.Text) * int.Parse(tbCantidad.Text));
+            //dgProductos.Rows.Add(tbProducto.Text, tbPrecio.Text, tbCantidad.Text, 
+            //double.Parse(tbPrecio.Text) * int.Parse(tbCantidad.Text));
             actualizarPrecio();
 
         }
@@ -157,12 +159,14 @@ namespace Libreria
                     return;
                 } else
                 {
-                    Archivo.copyFile(Constantes.TEMP_DIRECTORY + "temp.dat", Constantes.PRODUCT_FILE);
+                    Archivo.copyFile(Constantes.TEMP_DIRECTORY + "temp.dat", 
+                        Constantes.PRODUCT_FILE);
                 }
                 
             }
 
-            t = new Ticket(tbFolio.Text, dtFecha.Text, c, double.Parse(tbTotal.Text), a);
+            t = new Ticket(tbFolio.Text, dtFecha.Text, c, 
+                double.Parse(tbTotal.Text), a);
 
             Console.WriteLine(t.ToString());
 
@@ -183,7 +187,8 @@ namespace Libreria
             {
                 if ((row.Cells[3]).Value != null)
                 {
-                    Libro aux = new FileProducto().buscarLibro(int.Parse((row.Cells[0]).Value.ToString()));
+                    Libro aux = new FileProducto().
+                        buscarLibro(int.Parse((row.Cells[0]).Value.ToString()));
                     aux.Copias = int.Parse((row.Cells[3]).Value.ToString());
                     temp.Add(aux);
                 }
@@ -238,10 +243,7 @@ namespace Libreria
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            /*ProcessStartInfo psi = new ProcessStartInfo(Constantes.FOLIO_DIRECTORY + t.Folio + ".txt");
-            psi.Verb = "PRINT";
-
-            Process.Start(psi);*/
+            
             print(Constantes.FOLIO_DIRECTORY + t.Folio + ".txt");
         }
 

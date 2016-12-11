@@ -412,7 +412,7 @@ namespace Libreria
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.Filter = "Imagenes (*.jpg) | *.jpg";
             dialog.InitialDirectory = @"C:\";
-            dialog.Title = "Please select an image file to encrypt.";
+            dialog.Title = "Selecciona una imagen";
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 Archivo.copyFile(dialog.FileName, Constantes.TEMP_DIRECTORY + "temp.jpg");
