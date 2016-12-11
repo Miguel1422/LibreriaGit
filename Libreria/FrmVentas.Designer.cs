@@ -126,6 +126,7 @@
             this.tbNombre.ReadOnly = true;
             this.tbNombre.Size = new System.Drawing.Size(251, 20);
             this.tbNombre.TabIndex = 6;
+            this.tbNombre.TabStop = false;
             // 
             // lbTelefono
             // 
@@ -143,6 +144,7 @@
             this.tbTelefono.ReadOnly = true;
             this.tbTelefono.Size = new System.Drawing.Size(100, 20);
             this.tbTelefono.TabIndex = 8;
+            this.tbTelefono.TabStop = false;
             // 
             // lbDireccion
             // 
@@ -160,6 +162,7 @@
             this.tbDireccion.ReadOnly = true;
             this.tbDireccion.Size = new System.Drawing.Size(190, 20);
             this.tbDireccion.TabIndex = 10;
+            this.tbDireccion.TabStop = false;
             // 
             // lbClave
             // 
@@ -185,6 +188,7 @@
             this.tbProducto.ReadOnly = true;
             this.tbProducto.Size = new System.Drawing.Size(126, 20);
             this.tbProducto.TabIndex = 13;
+            this.tbProducto.TabStop = false;
             // 
             // lbExistencia
             // 
@@ -202,6 +206,7 @@
             this.tbExistencia.ReadOnly = true;
             this.tbExistencia.Size = new System.Drawing.Size(100, 20);
             this.tbExistencia.TabIndex = 15;
+            this.tbExistencia.TabStop = false;
             // 
             // tbPrecio
             // 
@@ -210,6 +215,7 @@
             this.tbPrecio.ReadOnly = true;
             this.tbPrecio.Size = new System.Drawing.Size(100, 20);
             this.tbPrecio.TabIndex = 17;
+            this.tbPrecio.TabStop = false;
             // 
             // lbPrecio
             // 
@@ -251,6 +257,7 @@
             this.dgProductos.Name = "dgProductos";
             this.dgProductos.Size = new System.Drawing.Size(507, 150);
             this.dgProductos.TabIndex = 20;
+            this.dgProductos.TabStop = false;
             // 
             // colClave
             // 
@@ -326,6 +333,7 @@
             this.tbTotal.ReadOnly = true;
             this.tbTotal.Size = new System.Drawing.Size(100, 20);
             this.tbTotal.TabIndex = 25;
+            this.tbTotal.TabStop = false;
             // 
             // btnImprimir
             // 

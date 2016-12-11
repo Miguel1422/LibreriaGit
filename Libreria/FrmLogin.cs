@@ -14,17 +14,23 @@ namespace Libreria
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             LoginManager l = new LoginManager();
-            
+
             int estado = l.findUser(tbUser.Text, tbPass.Text);
             if (estado == LoginManager.ADMIN)
             {
+                tbUser.Text = "";
+                tbPass.Text = "";
+
                 FrmAdmin main = new FrmAdmin();
                 Hide();
                 main.ShowDialog();
                 Show();
                 //Dispose();
-            } else if (estado == LoginManager.USER)
+            }
+            else if (estado == LoginManager.USER)
             {
+                tbUser.Text = "";
+                tbPass.Text = "";
                 FrmVentas ven = new FrmVentas();
                 Hide();
                 ven.ShowDialog();
@@ -45,7 +51,7 @@ namespace Libreria
 
         private void tbUser_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back)
             {
                 e.Handled = true;
             }

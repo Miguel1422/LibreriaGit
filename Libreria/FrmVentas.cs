@@ -36,6 +36,11 @@ namespace Libreria
             {
                 e.Handled = true;
             }
+
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                buscarC();
+            }
         }
 
         private void tbCantidad_KeyPress(object sender, KeyPressEventArgs e)
@@ -52,11 +57,21 @@ namespace Libreria
             {
                 e.Handled = true;
             }
+
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                buscarP();
+            }
+
         }
 
         private void btnBuscarC_Click(object sender, EventArgs e)
         {
+            buscarC();
+        }
 
+        private void buscarC()
+        {
             if (tbClaveC.Text.Equals(""))
             {
                 MessageBox.Show("Ingresa la clave del cliente");
@@ -74,10 +89,12 @@ namespace Libreria
             {
                 MessageBox.Show("Cliente no encontrado");
             }
-
         }
 
-        private void btnBuscarP_Click(object sender, EventArgs e)
+
+
+
+        private void buscarP()
         {
             if (tbClaveP.Text.Equals(""))
             {
@@ -96,6 +113,10 @@ namespace Libreria
             {
                 MessageBox.Show("Producto no encontrado");
             }
+        }
+        private void btnBuscarP_Click(object sender, EventArgs e)
+        {
+            buscarP();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
