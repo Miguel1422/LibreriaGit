@@ -579,6 +579,7 @@ namespace Libreria
                 FileCliente fc = new FileCliente();
 
                 fc.editarCliente(cl.Clave, cl);
+                MessageBox.Show("Cambios guardados con exito");
             }
             catch (Exception)
             {

@@ -70,6 +70,7 @@ namespace Libreria
             try
             {
                 fp.guardarProducto(l);
+                MessageBox.Show("Producto guardado");
             }
             catch (Exception)
             {

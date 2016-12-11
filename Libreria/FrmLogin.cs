@@ -21,13 +21,15 @@ namespace Libreria
                 FrmAdmin main = new FrmAdmin();
                 Hide();
                 main.ShowDialog();
-                Dispose();
+                Show();
+                //Dispose();
             } else if (estado == LoginManager.USER)
             {
                 FrmVentas ven = new FrmVentas();
                 Hide();
                 ven.ShowDialog();
-                Dispose();
+                Show();
+                //Dispose();
             }
             else
             {

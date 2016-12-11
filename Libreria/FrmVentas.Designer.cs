@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmVentas));
             this.lbFolio = new System.Windows.Forms.Label();
             this.tbFolio = new System.Windows.Forms.TextBox();
             this.lbFecha = new System.Windows.Forms.Label();
@@ -49,6 +50,11 @@
             this.lbCantidad = new System.Windows.Forms.Label();
             this.tbCantidad = new System.Windows.Forms.TextBox();
             this.dgProductos = new System.Windows.Forms.DataGridView();
+            this.colClave = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -57,11 +63,6 @@
             this.btnImprimir = new System.Windows.Forms.Button();
             this.btnBuscarC = new System.Windows.Forms.Button();
             this.btnBuscarP = new System.Windows.Forms.Button();
-            this.colClave = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgProductos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -251,6 +252,33 @@
             this.dgProductos.Size = new System.Drawing.Size(507, 150);
             this.dgProductos.TabIndex = 20;
             // 
+            // colClave
+            // 
+            this.colClave.HeaderText = "Clave";
+            this.colClave.Name = "colClave";
+            // 
+            // colProducto
+            // 
+            this.colProducto.HeaderText = "Producto";
+            this.colProducto.Name = "colProducto";
+            // 
+            // colPrecio
+            // 
+            this.colPrecio.HeaderText = "Precio";
+            this.colPrecio.Name = "colPrecio";
+            // 
+            // colCantidad
+            // 
+            this.colCantidad.HeaderText = "Cantidad";
+            this.colCantidad.Name = "colCantidad";
+            this.colCantidad.Width = 75;
+            // 
+            // colTotal
+            // 
+            this.colTotal.HeaderText = "Total";
+            this.colTotal.Name = "colTotal";
+            this.colTotal.Width = 87;
+            // 
             // btnAgregar
             // 
             this.btnAgregar.Location = new System.Drawing.Point(534, 259);
@@ -330,33 +358,6 @@
             this.btnBuscarP.UseVisualStyleBackColor = true;
             this.btnBuscarP.Click += new System.EventHandler(this.btnBuscarP_Click);
             // 
-            // colClave
-            // 
-            this.colClave.HeaderText = "Clave";
-            this.colClave.Name = "colClave";
-            // 
-            // colProducto
-            // 
-            this.colProducto.HeaderText = "Producto";
-            this.colProducto.Name = "colProducto";
-            // 
-            // colPrecio
-            // 
-            this.colPrecio.HeaderText = "Precio";
-            this.colPrecio.Name = "colPrecio";
-            // 
-            // colCantidad
-            // 
-            this.colCantidad.HeaderText = "Cantidad";
-            this.colCantidad.Name = "colCantidad";
-            this.colCantidad.Width = 75;
-            // 
-            // colTotal
-            // 
-            this.colTotal.HeaderText = "Total";
-            this.colTotal.Name = "colTotal";
-            this.colTotal.Width = 87;
-            // 
             // FrmVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -391,9 +392,10 @@
             this.Controls.Add(this.lbFecha);
             this.Controls.Add(this.tbFolio);
             this.Controls.Add(this.lbFolio);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmVentas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmVentas";
+            this.Text = "Ventas";
             ((System.ComponentModel.ISupportInitialize)(this.dgProductos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

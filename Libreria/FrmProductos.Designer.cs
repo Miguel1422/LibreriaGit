@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProductos));
             this.lbIsbn = new System.Windows.Forms.Label();
             this.tbIsbn = new System.Windows.Forms.TextBox();
             this.tbTitulo = new System.Windows.Forms.TextBox();
@@ -199,9 +200,10 @@
             this.Controls.Add(this.lbTitulo);
             this.Controls.Add(this.tbIsbn);
             this.Controls.Add(this.lbIsbn);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmProductos";
+            this.Text = "Agregar Producto";
             this.ResumeLayout(false);
             this.PerformLayout();
 

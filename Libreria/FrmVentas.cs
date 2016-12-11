@@ -175,7 +175,7 @@ namespace Libreria
             ft.guardarTicket(t);
 
             btnImprimir.Enabled = true;
-
+            MessageBox.Show("Ticket guardado");
 
         }
 

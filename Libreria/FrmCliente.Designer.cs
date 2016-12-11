@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCliente));
             this.lbClave = new System.Windows.Forms.Label();
             this.tbClave = new System.Windows.Forms.TextBox();
             this.lbDireccion = new System.Windows.Forms.Label();
@@ -237,9 +238,10 @@
             this.Controls.Add(this.lbDireccion);
             this.Controls.Add(this.tbClave);
             this.Controls.Add(this.lbClave);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmCliente";
+            this.Text = "Cliente";
             ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

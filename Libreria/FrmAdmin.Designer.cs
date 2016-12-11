@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdmin));
             this.btnCliente = new System.Windows.Forms.Button();
             this.btnProductos = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -59,9 +60,10 @@
             this.ClientSize = new System.Drawing.Size(284, 129);
             this.Controls.Add(this.btnProductos);
             this.Controls.Add(this.btnCliente);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmMain";
+            this.Text = "Administrador";
             this.ResumeLayout(false);
 
         }
