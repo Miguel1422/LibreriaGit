@@ -49,11 +49,6 @@
             this.lbCantidad = new System.Windows.Forms.Label();
             this.tbCantidad = new System.Windows.Forms.TextBox();
             this.dgProductos = new System.Windows.Forms.DataGridView();
-            this.colClave = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -62,6 +57,11 @@
             this.btnImprimir = new System.Windows.Forms.Button();
             this.btnBuscarC = new System.Windows.Forms.Button();
             this.btnBuscarP = new System.Windows.Forms.Button();
+            this.colClave = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgProductos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,7 +79,7 @@
             this.tbFolio.Location = new System.Drawing.Point(63, 6);
             this.tbFolio.MaxLength = 10;
             this.tbFolio.Name = "tbFolio";
-            this.tbFolio.Size = new System.Drawing.Size(100, 20);
+            this.tbFolio.Size = new System.Drawing.Size(200, 20);
             this.tbFolio.TabIndex = 1;
             this.tbFolio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbFolio_KeyPress);
             // 
@@ -114,7 +114,7 @@
             this.tbClaveC.Location = new System.Drawing.Point(147, 73);
             this.tbClaveC.MaxLength = 5;
             this.tbClaveC.Name = "tbClaveC";
-            this.tbClaveC.Size = new System.Drawing.Size(100, 20);
+            this.tbClaveC.Size = new System.Drawing.Size(116, 20);
             this.tbClaveC.TabIndex = 5;
             this.tbClaveC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNoControl_KeyPress);
             // 
@@ -123,13 +123,13 @@
             this.tbNombre.Location = new System.Drawing.Point(12, 109);
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.ReadOnly = true;
-            this.tbNombre.Size = new System.Drawing.Size(232, 20);
+            this.tbNombre.Size = new System.Drawing.Size(251, 20);
             this.tbNombre.TabIndex = 6;
             // 
             // lbTelefono
             // 
             this.lbTelefono.AutoSize = true;
-            this.lbTelefono.Location = new System.Drawing.Point(250, 112);
+            this.lbTelefono.Location = new System.Drawing.Point(269, 112);
             this.lbTelefono.Name = "lbTelefono";
             this.lbTelefono.Size = new System.Drawing.Size(52, 13);
             this.lbTelefono.TabIndex = 7;
@@ -137,7 +137,7 @@
             // 
             // tbTelefono
             // 
-            this.tbTelefono.Location = new System.Drawing.Point(321, 109);
+            this.tbTelefono.Location = new System.Drawing.Point(327, 109);
             this.tbTelefono.Name = "tbTelefono";
             this.tbTelefono.ReadOnly = true;
             this.tbTelefono.Size = new System.Drawing.Size(100, 20);
@@ -157,7 +157,7 @@
             this.tbDireccion.Location = new System.Drawing.Point(73, 141);
             this.tbDireccion.Name = "tbDireccion";
             this.tbDireccion.ReadOnly = true;
-            this.tbDireccion.Size = new System.Drawing.Size(144, 20);
+            this.tbDireccion.Size = new System.Drawing.Size(190, 20);
             this.tbDireccion.TabIndex = 10;
             // 
             // lbClave
@@ -173,7 +173,7 @@
             // 
             this.tbClaveP.Location = new System.Drawing.Point(117, 174);
             this.tbClaveP.Name = "tbClaveP";
-            this.tbClaveP.Size = new System.Drawing.Size(100, 20);
+            this.tbClaveP.Size = new System.Drawing.Size(146, 20);
             this.tbClaveP.TabIndex = 12;
             this.tbClaveP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbClaveP_KeyPress);
             // 
@@ -182,7 +182,7 @@
             this.tbProducto.Location = new System.Drawing.Point(15, 233);
             this.tbProducto.Name = "tbProducto";
             this.tbProducto.ReadOnly = true;
-            this.tbProducto.Size = new System.Drawing.Size(100, 20);
+            this.tbProducto.Size = new System.Drawing.Size(126, 20);
             this.tbProducto.TabIndex = 13;
             // 
             // lbExistencia
@@ -233,7 +233,7 @@
             this.tbCantidad.Location = new System.Drawing.Point(534, 233);
             this.tbCantidad.MaxLength = 5;
             this.tbCantidad.Name = "tbCantidad";
-            this.tbCantidad.Size = new System.Drawing.Size(100, 20);
+            this.tbCantidad.Size = new System.Drawing.Size(50, 20);
             this.tbCantidad.TabIndex = 19;
             this.tbCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCantidad_KeyPress);
             // 
@@ -248,42 +248,14 @@
             this.colTotal});
             this.dgProductos.Location = new System.Drawing.Point(15, 259);
             this.dgProductos.Name = "dgProductos";
-            this.dgProductos.Size = new System.Drawing.Size(406, 150);
+            this.dgProductos.Size = new System.Drawing.Size(507, 150);
             this.dgProductos.TabIndex = 20;
-            // 
-            // colClave
-            // 
-            this.colClave.HeaderText = "Clave";
-            this.colClave.Name = "colClave";
-            // 
-            // colProducto
-            // 
-            this.colProducto.HeaderText = "Producto";
-            this.colProducto.Name = "colProducto";
-            // 
-            // colPrecio
-            // 
-            this.colPrecio.HeaderText = "Precio";
-            this.colPrecio.Name = "colPrecio";
-            this.colPrecio.Width = 50;
-            // 
-            // colCantidad
-            // 
-            this.colCantidad.HeaderText = "Cantidad";
-            this.colCantidad.Name = "colCantidad";
-            this.colCantidad.Width = 50;
-            // 
-            // colTotal
-            // 
-            this.colTotal.HeaderText = "Total";
-            this.colTotal.Name = "colTotal";
-            this.colTotal.Width = 50;
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(427, 259);
+            this.btnAgregar.Location = new System.Drawing.Point(534, 259);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(37, 60);
+            this.btnAgregar.Size = new System.Drawing.Size(50, 60);
             this.btnAgregar.TabIndex = 21;
             this.btnAgregar.Text = "+";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -291,9 +263,9 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(427, 325);
+            this.btnEliminar.Location = new System.Drawing.Point(534, 325);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(37, 60);
+            this.btnEliminar.Size = new System.Drawing.Size(50, 60);
             this.btnEliminar.TabIndex = 22;
             this.btnEliminar.Text = "-";
             this.btnEliminar.UseMnemonic = false;
@@ -313,7 +285,7 @@
             // lbTotal
             // 
             this.lbTotal.AutoSize = true;
-            this.lbTotal.Location = new System.Drawing.Point(177, 437);
+            this.lbTotal.Location = new System.Drawing.Point(374, 442);
             this.lbTotal.Name = "lbTotal";
             this.lbTotal.Size = new System.Drawing.Size(34, 13);
             this.lbTotal.TabIndex = 24;
@@ -321,7 +293,7 @@
             // 
             // tbTotal
             // 
-            this.tbTotal.Location = new System.Drawing.Point(225, 434);
+            this.tbTotal.Location = new System.Drawing.Point(422, 439);
             this.tbTotal.Name = "tbTotal";
             this.tbTotal.ReadOnly = true;
             this.tbTotal.Size = new System.Drawing.Size(100, 20);
@@ -330,9 +302,9 @@
             // btnImprimir
             // 
             this.btnImprimir.Enabled = false;
-            this.btnImprimir.Location = new System.Drawing.Point(579, 437);
+            this.btnImprimir.Location = new System.Drawing.Point(534, 437);
             this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(75, 23);
+            this.btnImprimir.Size = new System.Drawing.Size(50, 23);
             this.btnImprimir.TabIndex = 26;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = true;
@@ -340,9 +312,9 @@
             // 
             // btnBuscarC
             // 
-            this.btnBuscarC.Location = new System.Drawing.Point(265, 73);
+            this.btnBuscarC.Location = new System.Drawing.Point(272, 71);
             this.btnBuscarC.Name = "btnBuscarC";
-            this.btnBuscarC.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscarC.Size = new System.Drawing.Size(49, 23);
             this.btnBuscarC.TabIndex = 6;
             this.btnBuscarC.Text = "Buscar";
             this.btnBuscarC.UseVisualStyleBackColor = true;
@@ -350,19 +322,46 @@
             // 
             // btnBuscarP
             // 
-            this.btnBuscarP.Location = new System.Drawing.Point(265, 177);
+            this.btnBuscarP.Location = new System.Drawing.Point(272, 171);
             this.btnBuscarP.Name = "btnBuscarP";
-            this.btnBuscarP.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscarP.Size = new System.Drawing.Size(49, 23);
             this.btnBuscarP.TabIndex = 13;
             this.btnBuscarP.Text = "Buscar";
             this.btnBuscarP.UseVisualStyleBackColor = true;
             this.btnBuscarP.Click += new System.EventHandler(this.btnBuscarP_Click);
             // 
+            // colClave
+            // 
+            this.colClave.HeaderText = "Clave";
+            this.colClave.Name = "colClave";
+            // 
+            // colProducto
+            // 
+            this.colProducto.HeaderText = "Producto";
+            this.colProducto.Name = "colProducto";
+            // 
+            // colPrecio
+            // 
+            this.colPrecio.HeaderText = "Precio";
+            this.colPrecio.Name = "colPrecio";
+            // 
+            // colCantidad
+            // 
+            this.colCantidad.HeaderText = "Cantidad";
+            this.colCantidad.Name = "colCantidad";
+            this.colCantidad.Width = 75;
+            // 
+            // colTotal
+            // 
+            this.colTotal.HeaderText = "Total";
+            this.colTotal.Name = "colTotal";
+            this.colTotal.Width = 87;
+            // 
             // FrmVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(666, 472);
+            this.ClientSize = new System.Drawing.Size(598, 472);
             this.Controls.Add(this.btnBuscarP);
             this.Controls.Add(this.btnBuscarC);
             this.Controls.Add(this.btnImprimir);

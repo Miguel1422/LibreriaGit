@@ -34,9 +34,9 @@
             // 
             // btnCliente
             // 
-            this.btnCliente.Location = new System.Drawing.Point(47, 82);
+            this.btnCliente.Location = new System.Drawing.Point(12, 12);
             this.btnCliente.Name = "btnCliente";
-            this.btnCliente.Size = new System.Drawing.Size(75, 23);
+            this.btnCliente.Size = new System.Drawing.Size(119, 93);
             this.btnCliente.TabIndex = 0;
             this.btnCliente.Text = "Cliente";
             this.btnCliente.UseVisualStyleBackColor = true;
@@ -44,9 +44,9 @@
             // 
             // btnProductos
             // 
-            this.btnProductos.Location = new System.Drawing.Point(137, 82);
+            this.btnProductos.Location = new System.Drawing.Point(137, 12);
             this.btnProductos.Name = "btnProductos";
-            this.btnProductos.Size = new System.Drawing.Size(75, 23);
+            this.btnProductos.Size = new System.Drawing.Size(117, 93);
             this.btnProductos.TabIndex = 1;
             this.btnProductos.Text = "Productos";
             this.btnProductos.UseVisualStyleBackColor = true;
@@ -56,7 +56,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(284, 129);
             this.Controls.Add(this.btnProductos);
             this.Controls.Add(this.btnCliente);
             this.Name = "FrmAdmin";
