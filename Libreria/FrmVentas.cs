@@ -117,9 +117,12 @@ namespace Libreria
             row.Cells[1].Value = tbProducto.Text;
             row.Cells[2].Value = tbPrecio.Text;
             row.Cells[3].Value = tbCantidad.Text;
-            row.Cells[4].Value = double.Parse(tbPrecio.Text) * 
+            row.Cells[4].Value = double.Parse(tbPrecio.Text) *
                 int.Parse(tbCantidad.Text);
             dgProductos.Rows.Add(row);
+
+            
+            
 
             //dgProductos.Rows.Add(tbProducto.Text, tbPrecio.Text, tbCantidad.Text, 
             //double.Parse(tbPrecio.Text) * int.Parse(tbCantidad.Text));
@@ -149,23 +152,24 @@ namespace Libreria
 
             ArrayList a = getLibros();
 
-            
+
             FileProducto fp = new FileProducto();
             foreach (Libro item in a)
             {
                 if (fp.restarProducto(item.Clave, item.Copias) != item.Copias)
                 {
-                    MessageBox.Show("No exite tanto inventario para " + item.Titulo );
+                    MessageBox.Show("No exite tanto inventario para " + item.Titulo);
                     return;
-                } else
+                }
+                else
                 {
-                    Archivo.copyFile(Constantes.TEMP_DIRECTORY + "temp.dat", 
+                    Archivo.copyFile(Constantes.TEMP_DIRECTORY + "temp.dat",
                         Constantes.PRODUCT_FILE);
                 }
-                
+
             }
 
-            t = new Ticket(tbFolio.Text, dtFecha.Text, c, 
+            t = new Ticket(tbFolio.Text, dtFecha.Text, c,
                 double.Parse(tbTotal.Text), a);
 
             Console.WriteLine(t.ToString());
@@ -243,7 +247,7 @@ namespace Libreria
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            
+
             print(Constantes.FOLIO_DIRECTORY + t.Folio + ".txt");
         }
 
