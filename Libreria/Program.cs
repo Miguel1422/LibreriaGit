@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Libreria.archivos;
+using System.IO;
 
 namespace Libreria
 {
@@ -28,6 +29,8 @@ namespace Libreria
             Archivo.createFile(Constantes.PRODUCT_FILE);
 
             Application.Run(new FrmLogin());
+
+            Directory.Delete(Constantes.TEMP_DIRECTORY, true);
 
             //Application.Run(new FrmVentas());
             //Application.Run(new FrmProductos());
