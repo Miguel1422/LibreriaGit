@@ -27,7 +27,8 @@ namespace Libreria.archivos.binario
                         int clave = int.Parse(token[0]);
                         if (clave != key)
                         {
-                            binW.Write(l);
+                            //binW.Write(l);
+                            binW.Write(new Libro(int.Parse(token[0]), token[1], token[2], token[3], token[4], int.Parse(token[5]), double.Parse(token[6])).ToString());
                         }
                         else
                         {
@@ -70,6 +71,87 @@ namespace Libreria.archivos.binario
                 }
             }
             return null;
+        }
+
+
+        public bool eliminarLibro(int key)
+        {
+            bool encontrado = false;
+
+            using (BinaryReader binR = new BinaryReader(File.Open(Constantes.PRODUCT_FILE, FileMode.Open)))
+            using (BinaryWriter binW = new BinaryWriter(File.Open(Constantes.TEMP_DIRECTORY + "temp.dat", FileMode.Create)))
+            {
+                string l;
+
+                while (binR.PeekChar() != -1 && binR.BaseStream.Position != binR.BaseStream.Length)
+                {
+                    try
+                    {
+                        l = binR.ReadString();
+                        string[] token = l.Split('|');
+                        int clave = int.Parse(token[0]);
+                        if (clave != key)
+                        {
+                            //binW.Write(l);
+                            binW.Write(new Libro(int.Parse(token[0]), token[1], token[2], token[3], token[4], int.Parse(token[5]), double.Parse(token[6])).ToString());
+
+                        } else
+                        {
+                            encontrado = true;
+                        }
+
+                    }
+                    catch (Exception)
+                    {
+                        return encontrado;
+                    }
+
+                }
+
+                return encontrado;
+            }
+        }
+
+
+
+        public bool editarLibro(int key, Libro li)
+        {
+            bool encontrado = false;
+
+            using (BinaryReader binR = new BinaryReader(File.Open(Constantes.PRODUCT_FILE, FileMode.Open)))
+            using (BinaryWriter binW = new BinaryWriter(File.Open(Constantes.TEMP_DIRECTORY + "temp.dat", FileMode.OpenOrCreate)))
+            {
+                string l;
+
+                while (binR.PeekChar() != -1 && binR.BaseStream.Position != binR.BaseStream.Length)
+                {
+                    try
+                    {
+                        l = binR.ReadString();
+                        string[] token = l.Split('|');
+                        int clave = int.Parse(token[0]);
+                        if (clave != key)
+                        {
+                            //binW.Write(l);
+                            binW.Write(new Libro(int.Parse(token[0]), token[1], token[2], token[3], token[4], int.Parse(token[5]), double.Parse(token[6])).ToString());
+
+                        }
+                        else
+                        {
+                            binW.Write(li.ToString());
+                            encontrado = true;
+                        }
+
+                    }
+                    catch (Exception)
+                    {
+                        return encontrado;
+                    }
+
+                }
+
+                return encontrado;
+            }
         }
 
         public void guardarProducto(Libro l)

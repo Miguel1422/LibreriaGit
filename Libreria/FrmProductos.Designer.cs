@@ -44,6 +44,9 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.lbPrecio = new System.Windows.Forms.Label();
             this.tbPrecio = new System.Windows.Forms.TextBox();
+            this.btnConsulta = new System.Windows.Forms.Button();
+            this.btnElimina = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbIsbn
@@ -60,7 +63,7 @@
             this.tbIsbn.Location = new System.Drawing.Point(80, 38);
             this.tbIsbn.MaxLength = 17;
             this.tbIsbn.Name = "tbIsbn";
-            this.tbIsbn.Size = new System.Drawing.Size(125, 20);
+            this.tbIsbn.Size = new System.Drawing.Size(254, 20);
             this.tbIsbn.TabIndex = 2;
             this.tbIsbn.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbIsbn_KeyPress);
             // 
@@ -69,7 +72,7 @@
             this.tbTitulo.Location = new System.Drawing.Point(80, 64);
             this.tbTitulo.MaxLength = 40;
             this.tbTitulo.Name = "tbTitulo";
-            this.tbTitulo.Size = new System.Drawing.Size(125, 20);
+            this.tbTitulo.Size = new System.Drawing.Size(254, 20);
             this.tbTitulo.TabIndex = 3;
             // 
             // lbTitulo
@@ -86,7 +89,7 @@
             this.tbAutor.Location = new System.Drawing.Point(80, 90);
             this.tbAutor.MaxLength = 40;
             this.tbAutor.Name = "tbAutor";
-            this.tbAutor.Size = new System.Drawing.Size(125, 20);
+            this.tbAutor.Size = new System.Drawing.Size(254, 20);
             this.tbAutor.TabIndex = 4;
             this.tbAutor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbAutor_KeyPress);
             // 
@@ -104,7 +107,7 @@
             this.tbEditorial.Location = new System.Drawing.Point(80, 116);
             this.tbEditorial.MaxLength = 40;
             this.tbEditorial.Name = "tbEditorial";
-            this.tbEditorial.Size = new System.Drawing.Size(125, 20);
+            this.tbEditorial.Size = new System.Drawing.Size(254, 20);
             this.tbEditorial.TabIndex = 5;
             // 
             // lbEditorial
@@ -121,7 +124,7 @@
             this.tbClave.Location = new System.Drawing.Point(80, 12);
             this.tbClave.MaxLength = 5;
             this.tbClave.Name = "tbClave";
-            this.tbClave.Size = new System.Drawing.Size(125, 20);
+            this.tbClave.Size = new System.Drawing.Size(254, 20);
             this.tbClave.TabIndex = 1;
             this.tbClave.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbClave_KeyPress);
             // 
@@ -139,7 +142,7 @@
             this.tbCopias.Location = new System.Drawing.Point(80, 142);
             this.tbCopias.MaxLength = 5;
             this.tbCopias.Name = "tbCopias";
-            this.tbCopias.Size = new System.Drawing.Size(125, 20);
+            this.tbCopias.Size = new System.Drawing.Size(254, 20);
             this.tbCopias.TabIndex = 9;
             this.tbCopias.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCopias_KeyPress);
             // 
@@ -154,7 +157,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(80, 207);
+            this.btnGuardar.Location = new System.Drawing.Point(16, 206);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 11;
@@ -176,15 +179,48 @@
             this.tbPrecio.Location = new System.Drawing.Point(80, 168);
             this.tbPrecio.MaxLength = 5;
             this.tbPrecio.Name = "tbPrecio";
-            this.tbPrecio.Size = new System.Drawing.Size(125, 20);
+            this.tbPrecio.Size = new System.Drawing.Size(254, 20);
             this.tbPrecio.TabIndex = 10;
             this.tbPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPrecio_KeyPress);
+            // 
+            // btnConsulta
+            // 
+            this.btnConsulta.Location = new System.Drawing.Point(97, 206);
+            this.btnConsulta.Name = "btnConsulta";
+            this.btnConsulta.Size = new System.Drawing.Size(75, 23);
+            this.btnConsulta.TabIndex = 13;
+            this.btnConsulta.Text = "Consulta";
+            this.btnConsulta.UseVisualStyleBackColor = true;
+            this.btnConsulta.Click += new System.EventHandler(this.btnConsulta_Click);
+            // 
+            // btnElimina
+            // 
+            this.btnElimina.Location = new System.Drawing.Point(178, 206);
+            this.btnElimina.Name = "btnElimina";
+            this.btnElimina.Size = new System.Drawing.Size(75, 23);
+            this.btnElimina.TabIndex = 14;
+            this.btnElimina.Text = "Elimina";
+            this.btnElimina.UseVisualStyleBackColor = true;
+            this.btnElimina.Click += new System.EventHandler(this.btnElimina_Click);
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Location = new System.Drawing.Point(259, 206);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(75, 23);
+            this.btnEditar.TabIndex = 15;
+            this.btnEditar.Text = "Edita";
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // FrmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(354, 261);
+            this.Controls.Add(this.btnEditar);
+            this.Controls.Add(this.btnElimina);
+            this.Controls.Add(this.btnConsulta);
             this.Controls.Add(this.tbPrecio);
             this.Controls.Add(this.lbPrecio);
             this.Controls.Add(this.btnGuardar);
@@ -226,5 +262,8 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Label lbPrecio;
         private System.Windows.Forms.TextBox tbPrecio;
+        private System.Windows.Forms.Button btnConsulta;
+        private System.Windows.Forms.Button btnElimina;
+        private System.Windows.Forms.Button btnEditar;
     }
 }

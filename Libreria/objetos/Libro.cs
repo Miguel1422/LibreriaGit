@@ -71,7 +71,7 @@ namespace Libreria.objetos
 
         public override string ToString()
         {
-            string aux = String.Join("|", clave, isbn, titulo, autor, editorial, copias, precio + "|"+'\0');
+            string aux = String.Join("|", clave, isbn, titulo, autor, editorial, copias, precio + "|");
 
             return aux;
         }

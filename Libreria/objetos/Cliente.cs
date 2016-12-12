@@ -72,5 +72,11 @@ namespace Libreria.objetos
             return aux;
         }
 
+
+        ~Cliente()
+        {
+            Console.WriteLine("Cliente " + nombre + " murio");
+        }
+
     }
 }

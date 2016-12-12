@@ -131,5 +131,10 @@ namespace Libreria.archivos.texto
             writeFile(Constantes.USER_FILE, cl.ToString(), true);
         }
 
+
+        ~FileCliente()
+        {
+            Console.WriteLine("Finalizando FileCliente");
+        }
     }
 }
