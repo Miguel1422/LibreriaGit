@@ -13,7 +13,6 @@ namespace Libreria
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-
             Console.WriteLine("Hola");
             LoginManager l = new LoginManager();
 
